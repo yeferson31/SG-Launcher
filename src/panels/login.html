@@ -1,50 +1,37 @@
 <div class="container">
+    <div class="login-mode-selector" style="text-align:center; margin-bottom:2rem;">
+        <h3 style="margin-bottom:1rem; color:var(--text-color);">Selecciona tu tipo de cuenta</h3>
+        <div class="mode-buttons">
+            <button class="btn-mode btn-mode-online active" data-mode="online">
+                <span class="mode-icon">👑</span>
+                <span class="mode-text">Premium</span>
+                <span class="mode-desc">Cuenta Microsoft</span>
+            </button>
+            <button class="btn-mode btn-mode-offline" data-mode="offline">
+                <span class="mode-icon">👤</span>
+                <span class="mode-text">No Premium</span>
+                <span class="mode-desc">Cuenta Offline</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Formulario Online -->
     <div class="login-home login-tabs">
-        <div class="login-text">Veuillez vous identifier afin de jouer.</div>
-
+        <div class="login-text">Inicia sesión con tu cuenta Microsoft para acceder a todas las funciones Premium.</div>
         <div class="login-options">
-            <button class="connect connect-home">Connexion</button>
-            <button class="cancel cancel-home"  style="display: none;">annuler</button>
+            <button class="connect connect-home">Conectar con Microsoft</button>
+            <button class="cancel cancel-home" style="display: none;">Cancelar</button>
         </div>
     </div>
 
-    <div class="login-offline login-tabs">
-        <div class="login-text">Veuillez entrer votre pseudo</div>
-
+    <!-- Formulario Offline -->
+    <div class="login-offline login-tabs" style="display: none;">
+        <div class="login-text">Crea una cuenta offline para jugar sin necesidad de una cuenta Microsoft.</div>
         <div class="input-login">
-            <input type="text" class="email email-offline" placeholder="Pseudo" />
+            <input type="text" class="email email-offline" placeholder="Nombre de usuario (mínimo 3 caracteres)">
         </div>
-
         <div class="login-options">
-            <button class="connect connect-offline">Connexion</button>
-            <button class="cancel cancel-offline" style="display: none;">annuler</button>
-        </div>
-    </div>
-
-    <div class="login-AZauth login-tabs">
-        <div class="login-text">Veuillez vous connecter afin de jouer.</div>
-
-        <div class="input-login">
-            <input type="text" class="email email-AZauth" placeholder="E-mail" />
-            <input type="password" class="password password-AZauth" placeholder="Password" />
-        </div>
-
-        <div class="login-options">
-            <button class="connect connect-AZauth">Connexion</button>
-            <button class="cancel cancel-AZauth" style="display: none;">annuler</button>
-        </div>
-    </div>
-
-    <div class="login-AZauth-A2F login-tabs">
-        <div class="login-text">Veuillez entrer le code de sécurité.</div>
-
-        <div class="input-login">
-            <input type="text" class="A2F A2F-AZauth" placeholder="Code" />
-        </div>
-
-        <div class="login-options">
-            <button class="connect connect-AZauth-A2F">Valider</button>
-            <button class="cancel cancel-AZauth-A2F">annuler</button>
+            <button class="connect connect-offline">Crear cuenta offline</button>
         </div>
     </div>
 </div>

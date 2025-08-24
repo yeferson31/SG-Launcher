@@ -1,17 +1,20 @@
 .login .container {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100%;
+    padding: 20px;
 }
 
 .login-tabs {
-    position: absolute;
-    padding: 15px;
+    position: relative;
+    padding: 20px;
     background: var(--background);
     border-radius: 15px;
     text-align: center;
     min-width: 40%;
+    margin-top: 20px;
 }
 
 .login-home,
@@ -21,8 +24,67 @@
     display: none;
 }
 
+/* Estilos para el selector de modo */
+.mode-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.btn-mode {
+    background: var(--element-background);
+    border: 2px solid var(--element-color);
+    border-radius: 12px;
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-mode:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.btn-mode.active {
+    background: var(--color);
+    color: var(--background);
+    border-color: var(--color);
+}
+
+.btn-mode.active .mode-icon,
+.btn-mode.active .mode-text,
+.btn-mode.active .mode-desc {
+    color: var(--background);
+}
+
+.mode-icon {
+    font-size: 1.8rem;
+    color: var(--color);
+}
+
+.mode-text {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.mode-desc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    opacity: 0.8;
+}
+
 .login-text {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: var(--text-color);
+    line-height: 1.4;
 }
 
 .connect,
@@ -31,10 +93,18 @@
     color: var(--color);
     border: solid 4px var(--element-color);
     border-radius: 10px;
-    padding: 0.3rem 4rem;
-    font-size: inherit;
+    padding: 0.5rem 3rem;
+    font-size: 1rem;
     font-weight: bold;
     margin: 15px 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.connect:hover,
+.cancel:hover {
+    background: var(--element-color);
+    color: var(--background);
 }
 
 .input-login .email,
@@ -44,7 +114,16 @@
     background: none;
     border: solid 2px var(--element-color);
     border-radius: 30px;
-    width: 50%;
-    padding: 0.4rem 1rem;
-    margin-top: 10px;
+    width: 70%;
+    padding: 0.6rem 1.2rem;
+    margin-top: 15px;
+    font-size: 1rem;
+}
+
+.input-login .email:focus,
+.input-login .password:focus,
+.A2F:focus {
+    outline: none;
+    border-color: var(--color);
+    box-shadow: 0 0 0 2px rgba(var(--color-rgb), 0.2);
 }
