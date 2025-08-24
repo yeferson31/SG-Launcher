@@ -141,22 +141,25 @@ class Login {
             });
             return;
         }
-        // Generar UUID local para cuenta offline (método mejorado)
+        // Generar UUID local para cuenta offline (método mejorado - formato estándar de Minecraft)
         const generateOfflineUUID = (username) => {
-            // Usar un hash simple basado en el nombre de usuario
+            // Usar un hash simple basado en el nombre de usuario (formato estándar de Minecraft)
             let hash = 0;
             for (let i = 0; i < username.length; i++) {
                 hash = (hash << 5) - hash + username.charCodeAt(i);
                 hash |= 0; // Convertir a entero de 32 bits
             }
-            // Asegurar que el hash sea positivo
+            // Asegurar que el hash sea positivo y usar formato UUID estándar
             const positiveHash = Math.abs(hash) || 1; // Evitar 0
-            const uuid = `offline-${positiveHash.toString(16).padStart(32, '0')}`;
-            return uuid;
+            const uuid = positiveHash.toString(16).padStart(32, '0');
+            
+            // Formatear como UUID estándar: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+            return `${uuid.substring(0, 8)}-${uuid.substring(8, 12)}-${uuid.substring(12, 16)}-${uuid.substring(16, 20)}-${uuid.substring(20)}`;
         };
 
         let offlineAccount = {
             ID: generateOfflineUUID(emailOffline.value),
+            uuid: generateOfflineUUID(emailOffline.value), // Assign UUID to uuid property
             name: emailOffline.value,
             meta: {
                 type: 'Offline',
